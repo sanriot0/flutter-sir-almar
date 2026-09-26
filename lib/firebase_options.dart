@@ -53,17 +53,17 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyCUZVVWw9bvdJAjxagmTS1LCPYCPqLFQt0',
     appId: '1:635830893039:android:15959dcfed802215e21e1a',
     messagingSenderId: '635830893039',
-    projectId: 'flutter-firebase-app-4a9b3',
-    storageBucket: 'flutter-firebase-app-4a9b3.firebasestorage.app',
+    projectId: 'bsit4c-flutter-app',
+    storageBucket: 'bsit4c-flutter-app.firebasestorage.app',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyCHrUx43BBi_rWjVCtymLGU-6esPNqGpZY',
     appId: '1:635830893039:web:0a4842372b6d466fe21e1a',
     messagingSenderId: '635830893039',
-    projectId: 'flutter-firebase-app-4a9b3',
-    authDomain: 'flutter-firebase-app-4a9b3.firebaseapp.com',
-    storageBucket: 'flutter-firebase-app-4a9b3.firebasestorage.app',
+    projectId: 'bsit4c-flutter-app',
+    authDomain: 'bsit4c-flutter-app.firebaseapp.com',
+    storageBucket: 'bsit4c-flutter-app.firebasestorage.app',
     measurementId: 'G-2RP91FM2ZN',
   );
 }
