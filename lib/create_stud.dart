@@ -14,14 +14,17 @@ class _CreateStudentState extends State<CreateStudent> {
       TextEditingController();
   final TextEditingController _courseController =
       TextEditingController();
+  final TextEditingController _studentNoController =
+      TextEditingController();
 
   Future<void> saveTestData() async {
     if (_nameController.text.trim().isEmpty ||
-        _courseController.text.trim().isEmpty) {
+        _courseController.text.trim().isEmpty ||
+        _studentNoController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            'Please enter the student name and course.',
+            'Please enter the student number, name and course.',
           ),
         ),
       );
@@ -32,7 +35,7 @@ class _CreateStudentState extends State<CreateStudent> {
       await FirebaseFirestore.instance.collection('students').add({
         'name': _nameController.text.trim(),
         'course': _courseController.text.trim(),
-        'student_no': '',
+        'student_no': _studentNoController.text.trim(),
         'createdAt': FieldValue.serverTimestamp(),
       });
 
@@ -60,12 +63,13 @@ class _CreateStudentState extends State<CreateStudent> {
   void dispose() {
     _nameController.dispose();
     _courseController.dispose();
+    _studentNoController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFF4CAF50);
+    const primaryColor = Color.fromARGB(255,120,155,120);
     const backgroundColor = Color(0xFFF5F7FC);
 
     return Scaffold(
@@ -79,7 +83,7 @@ class _CreateStudentState extends State<CreateStudent> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: primaryColor,
+        backgroundColor: const Color.fromARGB(255,120,155,120),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
@@ -99,7 +103,7 @@ class _CreateStudentState extends State<CreateStudent> {
                       child: Icon(
                         Icons.person_add_alt_1_rounded,
                         size: 38,
-                        color: primaryColor,
+                        color: Color.fromARGB(255,120,155,120),
                       ),
                     ),
                   ),
@@ -156,6 +160,41 @@ class _CreateStudentState extends State<CreateStudent> {
                         const SizedBox(height: 20),
 
                         const Text(
+                          'Student Number',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+
+                        const SizedBox(height: 8),
+
+                        TextField(
+                          controller: _studentNoController,
+                          decoration: InputDecoration(
+                            hintText: 'Enter student number',
+                            prefixIcon: const Icon(
+                              Icons.badge_outlined,
+                              color: Color.fromARGB(255,120,155,120),
+                            ),
+                            filled: true,
+                            fillColor: backgroundColor,
+                            contentPadding:
+                                const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 14,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.circular(12),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        const Text(
                           'Full Name',
                           style: TextStyle(
                             fontSize: 14,
@@ -173,7 +212,7 @@ class _CreateStudentState extends State<CreateStudent> {
                             hintText: 'Enter student name',
                             prefixIcon: const Icon(
                               Icons.person_outline_rounded,
-                              color: primaryColor,
+                              color: Color.fromARGB(255,120,155,120),
                             ),
                             filled: true,
                             fillColor: backgroundColor,
@@ -210,7 +249,7 @@ class _CreateStudentState extends State<CreateStudent> {
                             hintText: 'Enter student course',
                             prefixIcon: const Icon(
                               Icons.school_outlined,
-                              color: primaryColor,
+                              color: Color.fromARGB(255,120,155,120),
                             ),
                             filled: true,
                             fillColor: backgroundColor,
@@ -245,7 +284,7 @@ class _CreateStudentState extends State<CreateStudent> {
                               ),
                             ),
                             style: FilledButton.styleFrom(
-                              backgroundColor: primaryColor,
+                              backgroundColor: const Color.fromARGB(255,120,155,120),
                               foregroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius:

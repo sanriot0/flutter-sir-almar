@@ -76,13 +76,13 @@ class _StudentPageState extends State<StudentPage> {
 
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFF2196F3);
-    const backgroundColor = Color(0xFFF5F7FC);
+    const primaryColor = Color(0xFF789B78);
+    const backgroundColor = Color(0xFFF6F8F3);
 
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Student Page",
           style: TextStyle(
             fontSize: 20,
@@ -127,8 +127,8 @@ class _StudentPageState extends State<StudentPage> {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState ==
                       ConnectionState.waiting) {
-                    return Center(
-                      child: const CircularProgressIndicator(
+                    return const Center(
+                      child: CircularProgressIndicator(
                         color: primaryColor,
                       ),
                     );
@@ -146,7 +146,7 @@ class _StudentPageState extends State<StudentPage> {
                   final documents = snapshot.data?.docs ?? [];
 
                   if (documents.isEmpty) {
-                    return Center(
+                    return const Center(
                       child: Text(
                         'No student records yet.',
                         style: TextStyle(
@@ -158,7 +158,7 @@ class _StudentPageState extends State<StudentPage> {
                   }
 
                   return ListView.builder(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                       vertical: 8,
                     ),
@@ -173,18 +173,17 @@ class _StudentPageState extends State<StudentPage> {
 
                       return Card(
                         elevation: 0,
-                        margin: EdgeInsets.only(bottom: 14),
+                        margin: const EdgeInsets.only(bottom: 14),
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(18),
-                          side: BorderSide(
-                            color: Color(0xFFE5EAF2),
+                          borderRadius: BorderRadius.circular(18),
+                          side: const BorderSide(
+                            color: Color(0xFFE1E9DE),
                             width: 1,
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(16),
                           child: Column(
                             crossAxisAlignment:
                                 CrossAxisAlignment.start,
@@ -196,14 +195,13 @@ class _StudentPageState extends State<StudentPage> {
                                   CircleAvatar(
                                     radius: 26,
                                     backgroundColor:
-                                        const Color(0xFFE3F0FF),
+                                        const Color(0xFFE8F0E6),
                                     child: Text(
                                       getInitials(name),
                                       style: const TextStyle(
                                         color: primaryColor,
                                         fontSize: 17,
-                                        fontWeight:
-                                            FontWeight.bold,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
@@ -217,12 +215,11 @@ class _StudentPageState extends State<StudentPage> {
                                       children: [
                                         Text(
                                           name,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 17,
                                             fontWeight:
                                                 FontWeight.w600,
-                                            color:
-                                                Color(0xFF1E293B),
+                                            color: Color(0xFF29382D),
                                           ),
                                         ),
 
@@ -230,20 +227,20 @@ class _StudentPageState extends State<StudentPage> {
 
                                         Row(
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.badge_outlined,
                                               size: 16,
-                                              color:
-                                                  Color(0xFF94A388),
+                                              color: primaryColor,
                                             ),
-                                            SizedBox(width: 6),
+                                            const SizedBox(width: 6),
                                             Expanded(
                                               child: Text(
-                                                studentno,
-                                                style: TextStyle(
+                                                'Student Number: $studentno',
+                                                style: const TextStyle(
                                                   fontSize: 13,
-                                                  color:
-                                                      Color(0xFF647488),
+                                                  color: Color(0xFF647466),
+                                                  fontWeight:
+                                                      FontWeight.w500,
                                                 ),
                                               ),
                                             ),
@@ -257,9 +254,9 @@ class _StudentPageState extends State<StudentPage> {
                                   IconButton(
                                     onPressed: () =>
                                         deleteStudent(document.id),
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.delete_outline_rounded,
-                                      color: Color(0xFF94A3B8),
+                                      color: Color(0xFF94A38F),
                                       size: 23,
                                     ),
                                   ),
@@ -270,19 +267,19 @@ class _StudentPageState extends State<StudentPage> {
 
                               Container(
                                 width: double.infinity,
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                   horizontal: 10,
                                   vertical: 8,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFF1F6FD),
+                                  color: const Color(0xFFF0F5ED),
                                   borderRadius:
                                       BorderRadius.circular(10),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.school_outlined,
                                       size: 17,
                                       color: primaryColor,
@@ -293,11 +290,10 @@ class _StudentPageState extends State<StudentPage> {
                                     Flexible(
                                       child: Text(
                                         course,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 12,
-                                          fontWeight:
-                                              FontWeight.w500,
-                                          color: Color(0xFF475569),
+                                          fontWeight: FontWeight.w500,
+                                          color: Color(0xFF475B49),
                                         ),
                                       ),
                                     ),
